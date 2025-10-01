@@ -2,6 +2,14 @@ const TinyQueue = require('tinyqueue').default;
 
 function dijkstra(grafo, noOrigem, noDestino)
 {
+
+  if (noOrigem === noDestino) {
+    return {
+      caminho: [noOrigem],
+      custo: 0
+    };
+  }
+  
   const distancias = {};
   const predecessores = {};
 
@@ -34,7 +42,7 @@ function dijkstra(grafo, noOrigem, noDestino)
       }
     }
   }
-  
+
   if(predecessores[noDestino] === null) {
     return null;
   }
